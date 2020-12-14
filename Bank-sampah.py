@@ -4,7 +4,10 @@
       
 
       
+
+      
 def kembali():
+  print('='*115)
   kembali = input("Apa Anda ingin kembali ke Menu Utama[ y / t ]: ")
   if kembali == 'y':
       masuk()
@@ -13,20 +16,23 @@ def kembali():
   else:
       print("Maaf yang anda masukkan salah")
       kembali()
+  print('='*115)
 def tanya():
+      print('='*115)
       tanya = input("Apa ada sampah yang ingin disetorkan lagi? [ y / t ] : ")
       if tanya == 'y':
           setor()
       elif tanya == 't':
           hitung()
           a = sum(saldo)
-          saldoakhir = a
+          saldohasil = a
           b = sum(berat)
           beratakhir = b
           kembali()
       else :
           print("Maaf yang anda masukkan salah")
           tanya()
+      print('='*115)
 def setor():
     print('='*115)
     print("Daftar Sampah: ")
@@ -37,7 +43,7 @@ def setor():
     print("5. Botol \t 10.Lain-lain")
     print('='*115)
 
-    print("-------------------------------")
+    print('-'*115)
     kode = int(input("nomor Sampah yang ingin disetorkan : "))
     if kode == 1:
         jumlah1 = int(input("Berapa Kilogram: "))
@@ -116,37 +122,38 @@ def jenis():
   kembali()
 def hitung():
   a = sum(saldo)
-  saldoakhir = a
+  saldohasil = a
   b = sum(berat)
   beratakhir = b
 def tarik():
   a = sum(saldo)
-  saldoakhir = a
+  saldohasil = a
   b = sum(berat)
   beratakhir = b
+  print('='*115)
   print("Penarikan Saldo")
-  print("Saldo Anda sekarang : ",saldoakhir)
+  print("Saldo Anda sekarang : ",saldohasil)
   keluar = int(input("Jumlah yang ingin diambil: "))
-  if keluar > saldoakhir:
+  if keluar > saldohasil:
       print("Maaf saldo anda tidak cukup")
       tarik()
   elif keluar < 0 :
       print("Anda sedang bercanda ya?")
       tarik()
   else:
-      hasil = saldoakhir - keluar
+      hasil = saldohasil - keluar
       print("saldo anda tersisa: Rp.",hasil)
   kembali()
 def masuk():
   a = sum(saldo)
-  saldoakhir = a
+  saldohasil = a
   b = sum(berat)
   beratakhir = b
   print('')
   print('='*115)
   print("Selamat Datang")
   print('',username)
-  print('Saldo Anda: Rp.',saldoakhir)
+  print('Saldo Anda: Rp.',saldohasil)
   print('berat setor-an:',beratakhir,' Kg')
   print('')
   print('='*115)
@@ -191,4 +198,5 @@ elif username == 'nasabah':
 else:
     print ("Maaf Username atau Password salah")
     exit
+
 
