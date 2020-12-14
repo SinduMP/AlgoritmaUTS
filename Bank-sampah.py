@@ -1,13 +1,19 @@
-#SinduMP/AlgoritmaUTS
-#
+#Program Bank Sampah
 
-      
+#Buatan: 
+#Sindu Masri Priadana
+#Politeknik Negeri Semarang
 
-      
+
+#Akun untuk login :
+# 1. username: admin
+#    password: admin
+# 2. username: nasabah
+#    password: nasabah
 
       
 def kembali():
-  print('='*115)
+  
   kembali = input("Apa Anda ingin kembali ke Menu Utama[ y / t ]: ")
   if kembali == 'y':
       masuk()
@@ -16,9 +22,9 @@ def kembali():
   else:
       print("Maaf yang anda masukkan salah")
       kembali()
-  print('='*115)
+  
 def tanya():
-      print('='*115)
+      
       tanya = input("Apa ada sampah yang ingin disetorkan lagi? [ y / t ] : ")
       if tanya == 'y':
           setor()
@@ -32,18 +38,18 @@ def tanya():
       else :
           print("Maaf yang anda masukkan salah")
           tanya()
-      print('='*115)
+      
 def setor():
-    print('='*115)
-    print("Daftar Sampah: ")
-    print("1. Kwaci \t 6. Aluminium")
-    print("2. Kardus\t 7. Besi     ")
-    print("3. Koran \t 8. Kaleng   ")
-    print("4. Buku  \t 9. Tembaga  ")
-    print("5. Botol \t 10.Lain-lain")
-    print('='*115)
+    print("\t==============================")
+    print("\t|       Daftar Sampah        |")
+    print("\t|----------------------------|")
+    print("\t|1. Kwaci \t 6. Aluminium|")
+    print("\t|2. Kardus\t 7. Besi     |")
+    print("\t|3. Koran \t 8. Kaleng   |")
+    print("\t|4. Buku  \t 9. Tembaga  |")
+    print("\t|5. Botol \t 10.Lain-lain|")
+    print("\t==============================")
 
-    print('-'*115)
     kode = int(input("nomor Sampah yang ingin disetorkan : "))
     if kode == 1:
         jumlah1 = int(input("Berapa Kilogram: "))
@@ -107,18 +113,20 @@ def setor():
         tanya()
     return
 def jenis():
-  print('='*115)
-  print("No | Nama Sampah  \t | Harga per Kg")
-  print("1. | Kwaci     \t\t | Rp.1000")
-  print("2. | Kardus    \t\t | Rp.2000")
-  print("3. | Koran     \t\t | Rp.1000")
-  print("4. | Buku      \t\t | Rp.1000")
-  print("5. | Botol     \t\t | Rp.2000")
-  print("6. | Aluminium \t\t | Rp.5000")
-  print("7. | Besi      \t\t | Rp.1000")
-  print("8. | Kaleng    \t\t | Rp.5000")
-  print("9. | Galon     \t\t | Rp.2000")
-  print("10.| lain-lain \t\t | Rp.1000")
+  print("\t================================================")
+  print("\t|No | Nama Sampah  \t\t | Harga per Kg|")
+  print("\t|---|----------------------------|-------------|")
+  print("\t|1. | Kwaci     \t\t | Rp. 1000    |")     
+  print("\t|2. | Kardus    \t\t | Rp. 2000    |")
+  print("\t|3. | Koran     \t\t | Rp. 1000    |")
+  print("\t|4. | Buku      \t\t | Rp. 1000    |")
+  print("\t|5. | Botol     \t\t | Rp. 2000    |")
+  print("\t|6. | Aluminium \t\t | Rp. 5000    |")
+  print("\t|7. | Besi      \t\t | Rp. 1000    |")
+  print("\t|8. | Kaleng    \t\t | Rp. 5000    |")
+  print("\t|9. | Galon     \t\t | Rp. 2000    |")
+  print("\t|10.| lain-lain \t\t | Rp. 1000    |")
+  print("\t================================================")
   kembali()
 def hitung():
   a = sum(saldo)
@@ -130,10 +138,9 @@ def tarik():
   saldohasil = a
   b = sum(berat)
   beratakhir = b
-  print('='*115)
   print("Penarikan Saldo")
-  print("Saldo Anda sekarang : ",saldohasil)
-  keluar = int(input("Jumlah yang ingin diambil: "))
+  print("Saldo Anda sekarang      : Rp.",saldohasil)
+  keluar = int(input("Jumlah yang ingin diambil: Rp. "))
   if keluar > saldohasil:
       print("Maaf saldo anda tidak cukup")
       tarik()
@@ -142,47 +149,53 @@ def tarik():
       tarik()
   else:
       hasil = saldohasil - keluar
-      print("saldo anda tersisa: Rp.",hasil)
+      print("saldo anda tersisa       : Rp.",hasil)
+      del saldo[2:10] 
+      saldo[1] = hasil
   kembali()
 def masuk():
   a = sum(saldo)
   saldohasil = a
   b = sum(berat)
   beratakhir = b
+  print('='*115)
+  print("Selamat Datang, ",username)
   print('')
-  print('='*115)
-  print("Selamat Datang")
-  print('',username)
-  print('Saldo Anda: Rp.',saldohasil)
-  print('berat setor-an:',beratakhir,' Kg')
+  print('Saldo Anda    : Rp.',saldohasil)
+  print('berat setor-an:    ',beratakhir,'Kg')
   print('')
-  print('='*115)
-  print("1. Setor Sampah")
-  print("2. Jenis Sampah")
-  print("3. Penarikan Uang")
-  print("4. keluar aplikasi")
-  print('='*115)
+  print("\t|====================|")
+  print("\t| 1. Setor Sampah    |")
+  print("\t| 2. Jenis Sampah    |")
+  print("\t| 3. Penarikan Uang  |")
+  print("\t| 4. keluar aplikasi |")
+  print("\t|====================|")
   pilihan = input("Pilih menu: ")
   if pilihan == '1':
+      print('='*115)
       setor()
   elif pilihan == '2':
+      print('='*115)
       jenis()
   elif pilihan == '3':
+      print('='*115)
       tarik()
   elif pilihan == '4':
+      print('='*115)
       exit
   else:
       print("Pilihan anda tidak ada")
       kembali()
 #login
-print('='*115)
 print("Login Akun :")
+print('')
 username = input("Username : ")
 passwd = input("Password : ")
 if username == 'admin':
     if passwd == 'admin':
           saldo = [0]
           berat = [0]
+          print('')
           masuk()
     else :
           print ("Maaf Username atau Password salah")
@@ -191,6 +204,7 @@ elif username == 'nasabah':
     if passwd == 'nasabah':
           saldo = [0]
           berat = [0]
+          print('')
           masuk()
     else :
           print ("Maaf Username atau Password salah")
@@ -198,5 +212,4 @@ elif username == 'nasabah':
 else:
     print ("Maaf Username atau Password salah")
     exit
-
 
