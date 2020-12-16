@@ -3,7 +3,7 @@
 #Buatan: 
 #Sindu Masri Priadana
 #Politeknik Negeri Semarang
-
+#          2020
 
 #Akun untuk login :
 # 1. username: admin
@@ -14,25 +14,41 @@
 #    password: customer2
 # 4. register mandiri
 
+# Keterangan:
+# agar list akun merata minimal 6 huruf/angka/symbol (masih pengembangan)
+# akun regestrasi hanya mengubah data akun ke 4, belum digunakan untuk menambah akun lebih banyak.
+
+# Program:
 i=n=0 
 n==0
+
+#class color
+class color:
+  BLUE = '\033[94m'
+  GREEN = '\033[92m'
+  YELLOW = '\033[93m'
+  RED = '\033[91m'
+  BOLD = '\033[1m'
+  UNDERLINE = '\033[4m'
+  END = '\033[0m'
+
 def kembali():
   
-  kembali = input("Apa Anda ingin kembali ke Menu Utama[ y / t ]: ")
+  kembali = input("Apa Anda ingin kembali ke Menu Utama[ y=ya / t=logout ]: ")
   if kembali == 'y':
       masuk()
   elif kembali == 't':
-      exit
+      menuawal()
   else:
       print("Maaf yang anda masukkan salah")
       kembali()
 def kembaliadmin():
   
-  kembali = input("Apa Anda ingin kembali ke Menu Utama[ y / t ]: ")
+  kembali = input("Apa Anda ingin kembali ke Menu Utama[ y=ya / t=logout ]: ")
   if kembali == 'y':
       masukadmin()
   elif kembali == 't':
-      exit
+      menuawal()
   else:
       print("Maaf yang anda masukkan salah")
       kembaliadmin()
@@ -74,17 +90,18 @@ def masuk():
   b = sum(berat)
   beratakhir = b
   print('='*115)
-  print("Selamat Datang, ",username)
+  print(color.BLUE +color.BOLD+"Selamat Datang, "+color.END,nama)
   print('')
   print('Saldo Anda    : Rp.',saldohasil)
   print('berat setor-an:    ',beratakhir,'Kg')
   print('')
-  print("\t|====================|")
+  print(color.GREEN + "\t|====================|")
   print("\t| 1. Setor Sampah    |")
   print("\t| 2. Jenis Sampah    |")
   print("\t| 3. Penarikan Uang  |")
   print("\t| 4. keluar aplikasi |")
-  print("\t|====================|")
+  print("\t| 5. Logout          |")
+  print("\t|====================|" +color.END)
   pilihan = input("Pilih menu: ")
   if pilihan == '1':
       print('='*115)
@@ -98,12 +115,15 @@ def masuk():
   elif pilihan == '4':
       print('='*115)
       exit
+  elif pilihan == '5':
+      print('='*115)
+      login()
   else:
       print("Pilihan anda tidak ada")
       kembali()
 
 def setor():
-    print("\t==============================")
+    print(color.GREEN +"\t==============================")
     print("\t|       Daftar Sampah        |")
     print("\t|----------------------------|")
     print("\t|1. Kwaci \t 6. Aluminium|")
@@ -111,7 +131,7 @@ def setor():
     print("\t|3. Koran \t 8. Kaleng   |")
     print("\t|4. Buku  \t 9. Tembaga  |")
     print("\t|5. Botol \t 10.Lain-lain|")
-    print("\t==============================")
+    print("\t==============================" +color.END)
 
     kode = int(input("nomor Sampah yang ingin disetorkan : "))
     if kode == 1:
@@ -179,7 +199,7 @@ def setor():
         tanya()
     return
 def jenis():
-  print("\t================================================")
+  print(color.GREEN +"\t================================================")
   print("\t|No | Nama Sampah  \t\t | Harga per Kg|")
   print("\t|---|----------------------------|-------------|")
   print("\t|1. | Kwaci     \t\t | Rp. 1000    |")     
@@ -192,7 +212,7 @@ def jenis():
   print("\t|8. | Kaleng    \t\t | Rp. 5000    |")
   print("\t|9. | Galon     \t\t | Rp. 2000    |")
   print("\t|10.| lain-lain \t\t | Rp. 1000    |")
-  print("\t================================================")
+  print("\t================================================" +color.END)
   kembali()
 def hitung():
   a = sum(saldo)
@@ -222,7 +242,7 @@ def tarik():
   kembali()
 #Menu Admin
 def setoradmin():
-    print("\t==============================")
+    print(color.GREEN + "\t==============================")
     print("\t|       Daftar Sampah        |")
     print("\t|----------------------------|")
     print("\t|1. Kwaci \t 6. Aluminium|")
@@ -230,7 +250,7 @@ def setoradmin():
     print("\t|3. Koran \t 8. Kaleng   |")
     print("\t|4. Buku  \t 9. Tembaga  |")
     print("\t|5. Botol \t 10.Lain-lain|")
-    print("\t==============================")
+    print("\t==============================" +color.END)
 
     kode = int(input("nomor Sampah yang ingin disetorkan : "))
     if kode == 1:
@@ -320,10 +340,10 @@ def tarikadmin():
       
   kembaliadmin()
 def listakun():
-    print("No\tNama\tUsername\tpassword\tsaldo\tsetoran")
+    print("No\tNama\t\tUsername\tpassword")
     i = len(data_base_user)
     for n in range(i):
-        print(n+1,'.\t',data_base_nama[n][0:11],'\t',data_base_user[n],'\t',data_base_pass[n],'\t',data_base_saldo[n],'\t',data_base_berat,'')
+        print(n+1,'.\t',data_base_nama[n][0:11],'\t',data_base_user[n],'\t',data_base_pass[n])
     kembaliadmin()
 def masukadmin():
   a = sum(saldo)
@@ -331,18 +351,19 @@ def masukadmin():
   b = sum(berat)
   beratakhir = b
   print('='*115)
-  print("Selamat Datang, ",username)
+  print(color.BLUE+color.BOLD+"Selamat Datang, "+color.END,nama)
   print('')
   print('Saldo Anda    : Rp.',saldohasil)
   print('berat setor-an:    ',beratakhir,'Kg')
-  print('')
+  print(color.GREEN + '')
   print("\t|====================|")
   print("\t| 1. Setor Sampah    |")
   print("\t| 2. Jenis Sampah    |")
   print("\t| 3. Penarikan Uang  |")
   print("\t| 4. List Akun       |")
-  print("\t| 5. keluar aplikasi |")
-  print("\t|====================|")
+  print("\t| 5. Logout          |")
+  print("\t| 6. keluar aplikasi |")
+  print("\t|====================|" + color.END)
   pilihan = input("Pilih menu: ")
   if pilihan == '1':
       print('='*115)
@@ -358,14 +379,18 @@ def masukadmin():
       listakun()
   elif pilihan == '5':
       print('='*115)
+      login()
+  elif pilihan == '6':
+      print('='*115)
       exit
   else:
       print("Pilihan anda tidak ada")
       kembali()
 #login
 def login():
-    global  username, saldo, berat, password
-    
+    global  username, saldo, berat, password, nama
+    print(color.BOLD + color.BLUE + "Login: " +color.END)
+    print('')
     username = input("Username: ")
     password = input("Password: ")
 
@@ -375,6 +400,7 @@ def login():
               data_base_saldo[0] = sum(saldo)
               berat = []
               data_base_berat[0] = sum(berat)
+              nama = data_base_nama[0]
               print('')
               masukadmin()
         else :
@@ -386,6 +412,7 @@ def login():
               data_base_saldo[1] = sum(saldo)
               berat = []
               data_base_berat[1] = sum(berat)
+              nama = data_base_nama[1]
               print('')
               masuk()
         else :
@@ -397,6 +424,7 @@ def login():
               data_base_saldo[2] = sum(saldo)
               berat = []
               data_base_berat[2] = sum(berat)
+              nama = data_base_nama[2]
               print('')
               masuk()
         else :
@@ -408,6 +436,7 @@ def login():
               data_base_saldo[3] = sum(saldo)
               berat = []
               data_base_berat[3] = sum(berat)
+              nama = data_base_nama[3]
               print('')
               masuk()
         else :
@@ -420,13 +449,13 @@ def login():
         if tanya == 'y':
             register()
         elif tanya == 't':
-            login()
+            menuawal()
         else:
             print("Maaf ada kesalahan")
             login()
 def register():
     print('='*115)
-    print("Register Account")
+    print(color.BOLD + color.BLUE +"Register Account" +color.END)
     print('')
     nama = input("Nama    : ")
     user = input("Username: ")
@@ -441,24 +470,29 @@ def register():
         register()
     else:
         print("Maaf ada kesalahan")
-        login()
+        menuawal()
+    print('='*115)
 def menuawal():
     global data_base_user, data_base_pass, data_base_saldo, data_base_berat, data_base_nama
-    data_base_user = ['admin','customer1','customer2','0']
-    data_base_pass = ['admin','customer1','customer2','0']
+    data_base_user = ['admin','customer1','customer2','-']
+    data_base_pass = ['admin','customer1','customer2','-']
     data_base_saldo =[ 0, 0, 0, 0 ]
     data_base_berat =[ 0, 0, 0, 0 ]
-    data_base_nama = ['admin','customer1','customer2','0']
-    print("Bank Sampah")
+    data_base_nama = ['Admin Bank Sampah','Customer1','Customer2','-']
+    print('='*115)
+    print(color.BOLD + color.GREEN + "Bank Sampah" + color.END)
     print('')
     print("Selamat datang")
     print("1. Login")
     print("2. Register")
-    pil = input("Pilih [1 / 2]: ")
+    print("3. Keluar Aplikasi")
+    pil = input("Pilih [1 / 2 / 3]: ")
     if pil == '1':
         login()
     elif pil == '2':
         register()
+    elif pil == '3':
+        exit
     else:
         print("Maaf yang anda masukkan salah")
         menuawal()
