@@ -250,7 +250,7 @@ def tarik():
       print ("Nama   :",nama)
       print ("Bank   :",bank)
       print ('')
-      print ("Jumlah :",keluar)
+      print ("Jumlah : Rp.",keluar)
       print ("="*30 + color.END)
       print ('') 
       
@@ -364,7 +364,7 @@ def tarikadmin():
       print ("Nama   :",nama)
       print ("Bank   :",bank)
       print ('')
-      print ("Jumlah :",keluar)
+      print ("Jumlah : Rp.",keluar)
       print ("="*30 + color.END)
       print ('') 
       
@@ -519,12 +519,6 @@ def register():
         menuawal()
     print('='*115)
 def menuawal():
-    global data_base_user, data_base_pass, data_base_saldo, data_base_berat, data_base_nama
-    data_base_user = ['admin','customer1','customer2','-']
-    data_base_pass = ['admin','customer1','customer2','-']
-    data_base_saldo =[ 0, 0, 0, 0 ]
-    data_base_berat =[ 0, 0, 0, 0 ]
-    data_base_nama = ['Admin Bank Sampah','Customer1','Customer2','-']
     print('='*115)
     print(color.BOLD + color.GREEN + "Bank Sampah" + color.END)
     print('')
@@ -542,5 +536,12 @@ def menuawal():
     else:
         print("Maaf yang anda masukkan salah")
         menuawal()
-        
+def data_base():
+    global data_base_user, data_base_pass, data_base_saldo, data_base_berat, data_base_nama
+    data_base_user = ['admin','customer1','customer2','-']
+    data_base_pass = ['admin','customer1','customer2','-']
+    data_base_saldo =[ 0, 0, 0, 0 ]
+    data_base_berat =[ 0, 0, 0, 0 ]
+    data_base_nama = ['Admin Bank Sampah','Customer1','Customer2','-']
+data_base()
 menuawal()
