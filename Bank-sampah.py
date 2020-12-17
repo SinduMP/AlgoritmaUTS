@@ -224,7 +224,10 @@ def tarik():
   saldohasil = a
   b = sum(berat)
   beratakhir = b
-  print("Penarikan Saldo")
+  print(color.BLUE +"Penarikan Saldo"+color.END)
+  bank = input ("Bank                     : ")
+  no_rekening = input ("No rekening              : ")
+  print('')
   print("Saldo Anda sekarang      : Rp.",saldohasil)
   keluar = int(input("Jumlah yang ingin diambil: Rp. "))
   if keluar > saldohasil:
@@ -238,6 +241,18 @@ def tarik():
       print("saldo anda tersisa       : Rp.",hasil)
       saldo[0] = hasil
       del saldo[1:10] 
+      print ("="*30)
+      print ("\tBank Sampah")
+      print ("\t  E-Cash")
+      print ('')
+      print ("Transfer Berhasil")
+      print ("No Rek :",no_rekening)
+      print ("Nama   :",nama)
+      print ("Bank   :",bank)
+      print ('')
+      print ("Jumlah :",keluar)
+      print ("="*30)
+      print ('') 
       
   kembali()
 #Menu Admin
@@ -323,7 +338,10 @@ def tarikadmin():
   saldohasil = a
   b = sum(berat)
   beratakhir = b
-  print("Penarikan Saldo")
+  print(color.BLUE +"Penarikan Saldo"+color.END)
+  bank = input ("Bank                     : ")
+  no_rekening = input ("No rekening              : ")
+  print('')
   print("Saldo Anda sekarang      : Rp.",saldohasil)
   keluar = int(input("Jumlah yang ingin diambil: Rp. "))
   if keluar > saldohasil:
@@ -337,6 +355,18 @@ def tarikadmin():
       print("saldo anda tersisa       : Rp.",hasil)
       saldo[0] = hasil
       del saldo[1:10] 
+      print (color.RED +"="*30)
+      print ("\tBank Sampah")
+      print ("\t  E-Cash")
+      print ('')
+      print ("Transfer Berhasil")
+      print ("No Rek :",no_rekening)
+      print ("Nama   :",nama)
+      print ("Bank   :",bank)
+      print ('')
+      print ("Jumlah :",keluar)
+      print ("="*30 + color.END)
+      print ('') 
       
   kembaliadmin()
 def jenisadmin():
