@@ -241,7 +241,7 @@ def tarik():
       print("saldo anda tersisa       : Rp.",hasil)
       saldo[0] = hasil
       del saldo[1:10] 
-      print ("="*30)
+      print (color.RED +"="*30)
       print ("\tBank Sampah")
       print ("\t  E-Cash")
       print ('')
@@ -251,7 +251,7 @@ def tarik():
       print ("Bank   :",bank)
       print ('')
       print ("Jumlah :",keluar)
-      print ("="*30)
+      print ("="*30 + color.END)
       print ('') 
       
   kembali()
