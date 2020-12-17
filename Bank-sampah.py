@@ -339,6 +339,22 @@ def tarikadmin():
       del saldo[1:10] 
       
   kembaliadmin()
+def jenisadmin():
+  print(color.GREEN +"\t================================================")
+  print("\t|No | Nama Sampah  \t\t | Harga per Kg|")
+  print("\t|---|----------------------------|-------------|")
+  print("\t|1. | Kwaci     \t\t | Rp. 1000    |")     
+  print("\t|2. | Kardus    \t\t | Rp. 2000    |")
+  print("\t|3. | Koran     \t\t | Rp. 1000    |")
+  print("\t|4. | Buku      \t\t | Rp. 1000    |")
+  print("\t|5. | Botol     \t\t | Rp. 2000    |")
+  print("\t|6. | Aluminium \t\t | Rp. 5000    |")
+  print("\t|7. | Besi      \t\t | Rp. 1000    |")
+  print("\t|8. | Kaleng    \t\t | Rp. 5000    |")
+  print("\t|9. | Galon     \t\t | Rp. 2000    |")
+  print("\t|10.| lain-lain \t\t | Rp. 1000    |")
+  print("\t================================================" +color.END)
+  kembaliadmin()
 def listakun():
     print("No\tNama\t\tUsername\tpassword")
     i = len(data_base_user)
@@ -370,7 +386,7 @@ def masukadmin():
       setoradmin()
   elif pilihan == '2':
       print('='*115)
-      jenis()
+      jenisadmin()
   elif pilihan == '3':
       print('='*115)
       tarikadmin()
